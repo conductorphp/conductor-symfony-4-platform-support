@@ -1,0 +1,21 @@
+---
+application_orchestration:
+  application:
+    snapshot:
+      plans:
+        default:
+          clean_steps:
+            delete-existing-snapshot: ConductorAppOrchestration\Snapshot\Command\DeleteExistingSnapshotCommand
+          steps:
+            # Uncomment maintenance enable/disable if you need snapshots to be performed under maintenance mode
+            #enable-maintenance: ConductorAppOrchestration\Snapshot\Command\EnableMaintenanceCommand
+            sync-assets:
+              class: ConductorAppOrchestration\Snapshot\Command\SyncAssetsCommand
+              options:
+                assets: {}
+            upload-databases:
+              class: ConductorAppOrchestration\Snapshot\Command\UploadDatabasesCommand
+              options:
+                databases:
+                  myapp: {}
+            #disable-maintenance: ConductorAppOrchestration\Snapshot\Command\DisableMaintenanceCommand

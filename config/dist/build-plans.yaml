@@ -1,0 +1,18 @@
+---
+application_orchestration:
+  application:
+    build:
+      default_plan: production
+      plans:
+        production:
+          steps:
+            clone-repo: ConductorAppOrchestration\Build\Command\CloneRepoCommand
+            add-build-notes: "commit=$(git show | head -1 | awk '{print $2}'); echo \"Build ID: $buildId\nCommit: $commit\" > build.txt"
+            composer-install: composer install --optimize-autoloader
+            package-build:
+              class: ConductorAppOrchestration\Build\Command\PackageBuildCommand
+              options:
+                excludes:
+                  - /.env
+                  - /var
+            save-build: ConductorAppOrchestration\Build\Command\SaveBuildCommand
