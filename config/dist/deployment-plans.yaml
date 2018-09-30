@@ -43,7 +43,7 @@ application_orchestration:
             composer-install:
               run_in_code_root: true
               conditions: [code-repo]
-              command: composer install --optimize-autoloader
+              command: composer install --optimize-autoloader --no-scripts
             deploy-skeleton:
               conditions: [assets, code, refresh, skeleton]
               provides: [skeleton]
@@ -82,6 +82,11 @@ application_orchestration:
               conditions: [assets, code, databases, refresh]
               depends: [code, databases]
               command: bin/console cache:warmup || echo "cannot warmup the cache (needs symfony/console)"
+            deploy-assets-to-public:
+              run_in_code_root: true
+              conditions: [assets, code, databases, refresh]
+              depends: [code, databases]
+              command: bin/console assets:install %PUBLIC_DIR%
 #            disable-maintenance:
 #              depends: [code, databases]
 #              class: ConductorAppOrchestration\Deploy\Command\DisableMaintenanceCommand
@@ -166,6 +171,11 @@ application_orchestration:
               conditions: [assets, code, databases, refresh]
               depends: [code, databases]
               command: bin/console cache:warmup || echo "cannot warmup the cache (needs symfony/console)"
+            deploy-assets-to-public:
+              run_in_code_root: true
+              conditions: [assets, code, databases, refresh]
+              depends: [code, databases]
+              command: bin/console assets:install %PUBLIC_DIR%
             # @todo Add class that will either disable maintenance or initiate a rollback based on a confirmation question
             # i.e. Ask "Disable maintenance mode? [Y/n]" followed by "Roll back to build 1234?" if "n" selected
 #            disable-maintenance:
