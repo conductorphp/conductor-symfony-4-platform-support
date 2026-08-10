@@ -1,3 +1,17 @@
+[4.1.0](https://github.com/conductorphp/conductor-symfony-4-platform-support/compare/4.0.0...4.1.0) (2026-08-10)
+
+### Features
+* PHP 8.4.1+ (CTAP-1224) ([9681837](https://github.com/conductorphp/conductor-symfony-4-platform-support/commit/9681837c951c2943b689456f386ed5e3e696d4f2))
+
+<!--- CHANGELOG SPLIT MARKER -->
+
+[3.0.0](https://github.com/conductorphp/conductor-symfony-4-platform-support/compare/2.0.0...3.0.0) (2026-06-26)
+
+### Bug Fixes
+* conductor 2.0 (CTAP-776) ([ebf2ff2](https://github.com/conductorphp/conductor-symfony-4-platform-support/commit/ebf2ff265988f91c2e6469bdfaf0791624e543b3))
+
+<!--- CHANGELOG SPLIT MARKER -->
+
 [1.0.1](https://github.com/conductorphp/conductor-symfony-4-platform-support/compare/1.0.0...1.0.1) (2026-06-25)
 
 ### Bug Fixes
