@@ -1,3 +1,10 @@
+[4.1.1](https://github.com/conductorphp/conductor-symfony-4-platform-support/compare/4.1.0...4.1.1) (2026-08-11)
+
+### Bug Fixes
+* to phpunit 13 (CTAP-1226) ([20639ef](https://github.com/conductorphp/conductor-symfony-4-platform-support/commit/20639efce97c760028aa50a8efab30c3098a0d3a))
+
+<!--- CHANGELOG SPLIT MARKER -->
+
 [4.1.0](https://github.com/conductorphp/conductor-symfony-4-platform-support/compare/4.0.0...4.1.0) (2026-08-10)
 
 ### Features
