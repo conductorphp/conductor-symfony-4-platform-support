@@ -2,6 +2,8 @@
 
 namespace ConductorSymfony4PlatformSupport;
 
+use ConductorAppOrchestration\Platform\PlatformManager;
+
 class ConfigProvider
 {
     /**
@@ -40,6 +42,10 @@ class ConfigProvider
         return array_merge(
             [
                 'source_file_path' => dirname(__DIR__) . '/files',
+                // Symfony has no common maintenance mode, so the platform inherits the default (no-op) strategy.
+                'services'         => [
+                    PlatformManager::SERVICE_CODE_DEPLOYMENT_STATE => Deploy\CodeDeploymentState::class,
+                ],
             ],
             include __DIR__ . '/../config/platform.php'
         );
